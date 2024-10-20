@@ -39,7 +39,7 @@ public class ShopController {
     public ApiResponse<?> search(@ModelAttribute ShopSearchParam shopSearchParam, @RequestParam(defaultValue = "0") int page,
                                  @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return ApiResponse.of(shopService.searchShop(shopSearchParam, pageable));
+        return ApiResponse.of(shopService.searchShop(shopSearchParam.getName(),shopSearchParam.getCity(),shopSearchParam.getDistrict(),shopSearchParam.getCategory(), pageable));
     }
 
     @PatchMapping("/shops/{id}")

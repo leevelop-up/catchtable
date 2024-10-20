@@ -21,26 +21,26 @@ public class ShopCustomRepositoryImpl implements ShopCustomRepository {
     private final JPQLQueryFactory queryFactory;
 
     @Override
-    public Page<Shop> search(ShopSearchParam shopSearchParam, Pageable pageable) {
+    public Page<Shop> search(String name,String city,String district, String Category, Pageable pageable) {
         QShop shop = QShop.shop;
 
         long total = queryFactory
                 .selectFrom(shop)
                 .where(
-                        shopName(shopSearchParam.getName()),
-                        shopCity(shopSearchParam.getCity()),
-                        shopCategory(shopSearchParam.getCategory()),
-                        shopDistrict(shopSearchParam.getDistrict())
+                        shopName(name),
+                        shopCity(city),
+                        shopCategory(Category),
+                        shopDistrict(district)
                 )
                 .fetchCount();
 
         List<Shop> shops = queryFactory
                 .selectFrom(shop)
                 .where(
-                        shopName(shopSearchParam.getName()),
-                        shopCity(shopSearchParam.getCity()),
-                        shopCategory(shopSearchParam.getCategory()),
-                        shopDistrict(shopSearchParam.getDistrict())
+                        shopName(name),
+                        shopCity(city),
+                        shopCategory(Category),
+                        shopDistrict(district)
                 )
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
