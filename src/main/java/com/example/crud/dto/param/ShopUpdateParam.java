@@ -1,6 +1,7 @@
 package com.example.crud.dto.param;
 
 import com.example.crud.domain.Shop;
+import com.example.crud.enums.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -18,7 +19,7 @@ public class ShopUpdateParam {
     @NotNull
     private Float rating;
     @NotBlank
-    private String category;
+    private Category category;
     @NotBlank
     private String city;
     @NotBlank

@@ -36,7 +36,7 @@ public class ShopRegisterParam {
         return Shop.builder()
                 .name(name)
                 .rating(rating)
-                .category(String.valueOf(category))
+                .category(category)
                 .city(city)
                 .district(district)
                 .capacity(capacity)

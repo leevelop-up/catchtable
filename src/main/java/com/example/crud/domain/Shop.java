@@ -2,6 +2,7 @@ package com.example.crud.domain;
 
 import com.example.crud.dto.param.ShopRegisterParam;
 import com.example.crud.dto.param.ShopUpdateParam;
+import com.example.crud.enums.Category;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +22,7 @@ public class Shop extends BaseTimeEntity{
 
     private String name;
     private Float rating;
-    private String category;
+    private Category category;
     private String city;
     private String district;
     private Integer capacity;
