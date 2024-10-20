@@ -16,7 +16,7 @@ CREATE TABLE member (
 -- Shop 테이블 생성
 CREATE TABLE shop (
                       id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '가게 ID (고유 식별자)',
-                      shop_name VARCHAR(100) NOT NULL COMMENT '가게 이름',
+                      name VARCHAR(100) NOT NULL COMMENT '가게 이름',
                       rating DECIMAL(3, 1) NOT NULL COMMENT '가게 평점',
                       category VARCHAR(50) NOT NULL COMMENT '가게 카테고리',
                       city VARCHAR(50) NOT NULL COMMENT '도시',

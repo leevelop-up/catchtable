@@ -1,5 +1,6 @@
 package com.example.crud.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -14,8 +15,10 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public abstract class BaseTimeEntity {
     @CreatedDate
-    private LocalDateTime create_date_time;
+    @Column(name="create_date_time", updatable = false)
+    private LocalDateTime createDateTime;
 
     @LastModifiedDate
-    private LocalDateTime update_date_time;
+    @Column(name="update_date_time",updatable = true)
+    private LocalDateTime updateDateTime;
 }

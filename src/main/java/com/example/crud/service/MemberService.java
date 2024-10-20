@@ -1,8 +1,8 @@
 package com.example.crud.service;
 
 import com.example.crud.domain.Member;
-import com.example.crud.dto.MemberJoinRequest;
 import com.example.crud.dto.param.MemberJoinParam;
+import com.example.crud.dto.param.MemberUpdateParam;
 import com.example.crud.exception.CrudException;
 import com.example.crud.repository.MemberJpaRepository;
 import com.example.crud.repository.MemberRepository;
@@ -11,8 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
 
 import static com.example.crud.exception.ErrorCode.VALUE_NOT_FOUND;
 
@@ -25,7 +23,6 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public void joinMember(MemberJoinParam param) {
-        System.out.println(param.toString());
         Member member = param.toDomain();
         memberJpaRepository.save(member);
     }
@@ -47,17 +44,10 @@ public class MemberService {
         return result;
     }
 
-    public void updateMember(Integer id, MemberJoinParam param) {
+    public void updateMember(Integer id, MemberUpdateParam param) {
         Member existingMember = memberJpaRepository.findById(id)
                 .orElseThrow(() -> {throw new CrudException(VALUE_NOT_FOUND, "Member not found");});
-
-        existingMember.updateMember(
-                param.getName(),
-                param.getPhoneNumber(),
-                param.getGender(),
-                param.getEmail(),
-                param.getBirth()
-        );
+        existingMember.update(param);
 
     }
 }

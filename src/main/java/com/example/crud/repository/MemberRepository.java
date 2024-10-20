@@ -24,8 +24,6 @@ public class MemberRepository {
     public Page<Member> getQueryFactory(String name, String gender,  Pageable pageable) {
         QMember member = QMember.member;
 
-
-        // Fetch the total count for pagination
         long total = queryFactory
                 .selectFrom(member)
                 .where(
@@ -34,8 +32,7 @@ public class MemberRepository {
                 )
                 .fetchCount();
 
-        // Fetch the members based on pagination and condition
-        List<Member> members = queryFactory
+       List<Member> members = queryFactory
                 .selectFrom(member)
                 .where(
                         MemberName(name),
@@ -45,7 +42,7 @@ public class MemberRepository {
                 .limit(pageable.getPageSize())
                 .fetch();
 
-        // Return the results as a Page object
+
         return new PageImpl<>(members, pageable, total);
     }
 

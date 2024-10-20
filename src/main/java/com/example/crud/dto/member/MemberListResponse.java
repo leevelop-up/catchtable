@@ -1,4 +1,4 @@
-package com.example.crud.dto;
+package com.example.crud.dto.member;
 
 import com.example.crud.domain.Member;
 import com.example.crud.enums.Gender;

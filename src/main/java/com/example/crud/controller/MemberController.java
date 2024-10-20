@@ -1,9 +1,11 @@
 package com.example.crud.controller;
 
 import com.example.crud.domain.Member;
-import com.example.crud.dto.MemberJoinRequest;
-import com.example.crud.dto.MemberListResponse;
+import com.example.crud.dto.member.MemberJoinRequest;
+import com.example.crud.dto.member.MemberListResponse;
+import com.example.crud.dto.member.MemberUpdateRequest;
 import com.example.crud.dto.param.MemberJoinParam;
+import com.example.crud.dto.param.MemberUpdateParam;
 import com.example.crud.dto.response.ApiResponse;
 import com.example.crud.dto.response.CrudPage;
 import com.example.crud.enums.ReturnCode;
@@ -43,8 +45,8 @@ public class MemberController {
     }
 
     @PatchMapping("/members/{id}")
-    public ApiResponse<?> updateMember(@PathVariable Integer id, @RequestBody MemberJoinRequest memberJoinRequest) {
-        MemberJoinParam param = memberJoinRequest.toParam();
+    public ApiResponse<?> updateMember(@PathVariable Integer id, @RequestBody MemberUpdateRequest memberUpdateRequest) {
+        MemberUpdateParam param = memberUpdateRequest.toParam();
         memberService.updateMember(id, param);
         return ApiResponse.of(ReturnCode.SUCCESS);
     }

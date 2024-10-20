@@ -1,25 +1,25 @@
-#spring:
-#  config:
-#    activate:
-#      on-profile: local
-#  application:
-#    name: curd
-#  datasource:
-#    hikari:
-#      jdbc-url: jdbc:mysql://localhost:3306/crud?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
-#      driver-class-name: com.mysql.cj.jdbc.Driver
-#      maximum-pool-size: 10
-#      max-lifetime: 30000
-#      connection-timeout: 3000
-#      username: crudUser
-#      password: 1234
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: none
-#    properties:
-#      hibernate:
-#        format_sql: true
+spring:
+  config:
+    activate:
+      on-profile: local
+  application:
+    name: curd
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/crud?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-timeout: 3000
+      username: crudUser
+      password: 1234
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
 ---
 spring:
   config:
@@ -31,8 +31,8 @@ spring:
     hikari:
       jdbc-url: jdbc:mariadb://leevelop.com:2906/practice?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: org.mariadb.jdbc.Driver
-      username: ${DB_USERNAME}
-      password: ${DB_PASSWORD}
+      username: merong2969
+      password: Seung0075!
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000

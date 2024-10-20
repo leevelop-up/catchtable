@@ -7,9 +7,11 @@ import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @RequiredArgsConstructor
 @Configuration
+@EnableJpaRepositories("com.example.crud.repository")
 public class QueryDslConfiguration {
 
     @PersistenceContext
