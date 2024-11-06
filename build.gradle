@@ -26,6 +26,11 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	//redis
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation 'org.redisson:redisson:3.18.0'
+
+
 	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -42,6 +47,8 @@ dependencies {
 	//swagger
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
+
+
 
 
 }
