@@ -31,9 +31,9 @@ public class ShopService {
         shop.update(param);
     }
 
-    public Page<Shop> searchShop(ShopSearchParam shopSearchParam, Pageable pageable){
+    public Page<Shop> searchShop(String name,String city,String district,String category, Pageable pageable){
         Page<Shop> result;
-        result = shopJpaRepository.search(shopSearchParam, pageable);
+        result = shopJpaRepository.search(name, city, district,category, pageable);
         return result;
     }
 
