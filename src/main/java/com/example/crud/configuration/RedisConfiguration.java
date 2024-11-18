@@ -7,7 +7,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 @Configuration
 public class RedisConfiguration {
@@ -18,13 +18,6 @@ public class RedisConfiguration {
     @Value("${spring.data.redis.port}")
     private int port;
 
-//    @Bean
-//    RedissonClient redissonClient() {
-//        Config config = new Config();
-//        String address = "redis://" + host + ":" + port;
-//        config.useSingleServer().setAddress(address);
-//        return Redisson.create(config);
-//    }
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
@@ -36,8 +29,8 @@ public class RedisConfiguration {
     public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new StringRedisSerializer());
+        redisTemplate.setKeySerializer(new Jackson2JsonRedisSerializer(String.class));
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(String.class));
         return redisTemplate;
     }
 }
