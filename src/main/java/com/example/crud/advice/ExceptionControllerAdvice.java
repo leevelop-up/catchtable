@@ -1,12 +1,10 @@
 package com.example.crud.advice;
 
-import com.example.crud.dto.MemberJoinResponseDto;
 import com.example.crud.exception.CrudException;
 import com.example.crud.exception.ErrorCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice

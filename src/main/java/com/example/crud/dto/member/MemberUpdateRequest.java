@@ -1,9 +1,15 @@
-package com.example.crud.dto;
+package com.example.crud.dto.member;
 
+import com.example.crud.dto.param.MemberJoinParam;
+import com.example.crud.dto.param.MemberUpdateParam;
+import com.example.crud.enums.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -12,17 +18,29 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class MemberJoinRequestDto {
+public class MemberUpdateRequest {
     @NotBlank(message = "이름을 입력해주세요")
     private String name;
     @Pattern(regexp = "^\\d{3}-\\d{4}-\\d{4}$", message = "전화번호는 '010-2222-1111' 형식이어야 합니다.")
     private String phoneNumber;
-    @Pattern(regexp = "^[MF]$", message = "성병 혁식이 아닙니다.")
-    private String gender;
+
+    private Gender gender;
     private LocalDate birth;
     @Email(message = "이메일 형식이 아닙니다.")
     private String email;
-    private String role;
+    @NotBlank
+    private String password;
+
+    public MemberUpdateParam toParam() {
+        return MemberUpdateParam.builder()
+                .name(name)
+                .phoneNumber(phoneNumber)
+                .gender(gender)
+                .birth(birth)
+                .email(email)
+                .password(password)
+                .build();
+    }
 
     public String toString() {
         return "Member{" +
@@ -31,7 +49,6 @@ public class MemberJoinRequestDto {
                 ", gender='" + gender + '\'' +
                 ", birth=" + birth +
                 ", email='" + email + '\'' +
-                ", role='" + role + '\'' +
                 '}';
     }
 }

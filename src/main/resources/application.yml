@@ -5,14 +5,14 @@ spring:
   application:
     name: curd
   datasource:
-    url: jdbc:mariadb://leevelop.com:2906/practice
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
     hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/crud?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000
+      username: crudUser
+      password: 1234
   jpa:
     show-sql: true
     hibernate:
@@ -20,6 +20,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6380
 ---
 spring:
   config:
@@ -29,14 +33,17 @@ spring:
     name: crud
   datasource:
     hikari:
-      url: jdbc:mariadb://leevelop.com:2906/practice
+      jdbc-url: jdbc:mariadb://leevelop.com:2906/practice?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: org.mariadb.jdbc.Driver
-      username: ${DB_USERNAME}
-      password: ${DB_PASSWORD}
+      username: merong2969
+      password: Seung0075!
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000
-
   jpa:
     hibernate:
       ddl-auto: none
+  data:
+    redis:
+      host: localhost
+      port: 6380
