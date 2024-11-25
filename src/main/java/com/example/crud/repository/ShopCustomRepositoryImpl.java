@@ -4,6 +4,7 @@ package com.example.crud.repository;
 import com.example.crud.domain.QShop;
 import com.example.crud.domain.Shop;
 import com.example.crud.dto.param.ShopSearchParam;
+import com.example.crud.enums.Category;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.JPQLQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class ShopCustomRepositoryImpl implements ShopCustomRepository {
     private final JPQLQueryFactory queryFactory;
 
     @Override
-    public Page<Shop> search(String name,String city,String district, String Category, Pageable pageable) {
+    public Page<Shop> search(String name, String city, String district, Category Category, Pageable pageable) {
         QShop shop = QShop.shop;
 
         long total = queryFactory
@@ -54,8 +55,8 @@ public class ShopCustomRepositoryImpl implements ShopCustomRepository {
         return district != null ? QShop.shop.district.contains(district) : null;
     }
 
-    private Predicate shopCategory(String category) {
-        return category != null ? QShop.shop.category.contains(category) : null;
+    private Predicate shopCategory(Category category) {
+        return category != null ? QShop.shop.category.eq(category) : null;
     }
 
     private Predicate shopCity(String city) {

@@ -4,6 +4,7 @@ import com.example.crud.domain.Shop;
 import com.example.crud.dto.param.ShopRegisterParam;
 import com.example.crud.dto.param.ShopSearchParam;
 import com.example.crud.dto.param.ShopUpdateParam;
+import com.example.crud.enums.Category;
 import com.example.crud.exception.CrudException;
 import com.example.crud.repository.ShopJpaRepository;
 import jakarta.transaction.Transactional;
@@ -31,7 +32,7 @@ public class ShopService {
         shop.update(param);
     }
 
-    public Page<Shop> searchShop(String name,String city,String district,String category, Pageable pageable){
+    public Page<Shop> searchShop(String name, String city, String district, Category category, Pageable pageable){
         Page<Shop> result;
         result = shopJpaRepository.search(name, city, district,category, pageable);
         return result;

@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @Table(name = "shop")
 public class Shop extends BaseTimeEntity{
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
@@ -27,9 +27,9 @@ public class Shop extends BaseTimeEntity{
     private String district;
     private Integer capacity;
 
-    @Column(name = "opentime")
+    @Column(name = "opening_time")
     private LocalTime openTime;
-    @Column(name = "closetime")
+    @Column(name = "closing_time")
     private LocalTime closeTime;
 
     public String toString() {

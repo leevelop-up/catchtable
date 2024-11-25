@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class ShopController {
-
-    final ShopService shopService;
-
+    private final ShopService shopService;
 
     @PostMapping("/shops")
     public ApiResponse<?> register(@RequestBody @Valid ShopRegisterRequest shopRegisterRequest) {

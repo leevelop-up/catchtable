@@ -1,7 +1,7 @@
 spring:
   config:
     activate:
-      on-profile: local
+      on-profile: prod
   application:
     name: curd
   datasource:
@@ -28,15 +28,15 @@ spring:
 spring:
   config:
     activate:
-      on-profile: prod
+      on-profile: local
   application:
     name: crud
   datasource:
     hikari:
       jdbc-url: jdbc:mariadb://leevelop.com:2906/practice?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: org.mariadb.jdbc.Driver
-      username: merong2969
-      password: Seung0075!
+      username:
+      password: 
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000
