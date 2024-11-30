@@ -2,6 +2,7 @@ package com.example.crud.dto.shop;
 
 import com.example.crud.dto.param.ShopRegisterParam;
 import com.example.crud.dto.param.ShopUpdateParam;
+import com.example.crud.enums.Category;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,7 +23,7 @@ public class ShopUpdateRequest {
     @NotNull
     private Float rating;
     @NotBlank
-    private String category;
+    private Category category;
     @NotBlank
     private String city;
     @NotBlank
