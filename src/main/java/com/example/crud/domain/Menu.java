@@ -1,5 +1,7 @@
 package com.example.crud.domain;
 
+import com.example.crud.dto.param.MenuRegisterParam;
+import com.example.crud.dto.param.MenuUpdateParam;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,5 +31,11 @@ public class Menu extends BaseTimeEntity{
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", description=" + description;
+    }
+
+    public void update(MenuUpdateParam param) {
+        this.name = param.getName();
+        this.price = param.getPrice();
+        this.description = param.getDescription();
     }
 }

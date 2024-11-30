@@ -35,14 +35,17 @@ spring:
     hikari:
       jdbc-url: jdbc:mariadb://leevelop.com:2906/practice?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: org.mariadb.jdbc.Driver
-      username:
-      password: 
+      username: 0
+      password: 1!
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000
   jpa:
     hibernate:
       ddl-auto: none
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
   data:
     redis:
       host: localhost
