@@ -37,7 +37,15 @@ public class ShopController {
     public ApiResponse<?> search(@ModelAttribute ShopSearchParam shopSearchParam, @RequestParam(defaultValue = "0") int page,
                                  @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return ApiResponse.of(shopService.searchShop(shopSearchParam.getName(),shopSearchParam.getCity(),shopSearchParam.getDistrict(),shopSearchParam.getCategory(), pageable));
+
+        boolean isRedisPopulated = shopService.isShopListRedis();
+        System.out.println(isRedisPopulated);
+        // 2. Redis에 데이터가 없으면 데이터베이스에서 Shop 정보 가져와 Redis에 저장
+        if (!isRedisPopulated) {
+            shopService.populateRedisFromDatabase();
+        }
+
+        return ApiResponse.of(shopService.searchShopFromRedis(shopSearchParam.getName(),shopSearchParam.getCity(),shopSearchParam.getDistrict(),shopSearchParam.getCategory(), pageable));
     }
 
     @PatchMapping("/shops/{id}")

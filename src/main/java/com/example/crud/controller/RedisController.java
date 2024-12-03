@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -17,4 +19,5 @@ public class RedisController {
             redisRepository.sAdd("1", "3");
             return "success";
         }
+
 }
