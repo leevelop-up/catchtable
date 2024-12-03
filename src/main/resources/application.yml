@@ -1,18 +1,20 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true # 중복된 빈 정의 허용
   config:
     activate:
       on-profile: prod
   application:
-    name: curd
+    name: crud
   datasource:
     hikari:
       jdbc-url: jdbc:mysql://localhost:3306/crud?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: com.mysql.cj.jdbc.Driver
+      username: crudUser
+      password: 1234
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000
-      username: crudUser
-      password: 1234
   jpa:
     show-sql: true
     hibernate:
@@ -20,12 +22,21 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  batch:
+    initialize: always
+    job:
+      enabled: true           # 배치 활성화
   data:
     redis:
       host: localhost
       port: 6380
+  logging:
+    level:
+      org.springframework.batch: DEBUG # 배치 디버그 로그 활성화
 ---
 spring:
+  main:
+    allow-bean-definition-overriding: true # 중복된 빈 정의 허용
   config:
     activate:
       on-profile: local
@@ -35,8 +46,8 @@ spring:
     hikari:
       jdbc-url: jdbc:mariadb://leevelop.com:2906/practice?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: org.mariadb.jdbc.Driver
-      username: 0
-      password: 1!
+      username: 1
+      password: 2
       maximum-pool-size: 10
       max-lifetime: 30000
       connection-timeout: 3000
@@ -46,7 +57,14 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+  batch:
+    initialize: always
+    job:
+      enabled: false          # 로컬 환경에서는 배치 비활성화
   data:
     redis:
       host: localhost
       port: 6380
+  logging:
+    level:
+      org.springframework.batch: DEBUG # 디버그 활성화
