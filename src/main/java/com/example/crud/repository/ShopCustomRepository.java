@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShopCustomRepository {
-    Page<Shop> search(String name,String city,String district,String category, Pageable pageable);
+    Page<Shop> search(String name, String city, String district, String category, Pageable pageable);
 }
