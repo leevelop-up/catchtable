@@ -1,14 +1,11 @@
 package com.example.crud.dto.param;
 
+import com.example.crud.domain.Menu;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
+import lombok.*;
+
+@Data
 public class MenuSearchRequest {
 
 

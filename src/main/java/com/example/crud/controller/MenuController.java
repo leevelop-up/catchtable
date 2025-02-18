@@ -33,6 +33,7 @@ public class MenuController {
     public ApiResponse<?>  search(@ModelAttribute MenuSearchRequest menuSearchRequest, @RequestParam(defaultValue = "0") int page,
                              @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
+        System.out.println(menuSearchRequest.getName());
         return ApiResponse.of(menuService.search(menuSearchRequest.getName(),menuSearchRequest.getPrice(),menuSearchRequest.getDescription(),pageable));
     }
     @DeleteMapping("/menus/{id}")
