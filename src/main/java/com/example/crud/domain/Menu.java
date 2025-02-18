@@ -2,6 +2,7 @@ package com.example.crud.domain;
 
 import com.example.crud.dto.param.MenuRegisterParam;
 import com.example.crud.dto.param.MenuUpdateParam;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,7 @@ public class Menu extends BaseTimeEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id", nullable = false)
+    @JsonIgnore
     private Shop shop;
     private String name;
     private long price;

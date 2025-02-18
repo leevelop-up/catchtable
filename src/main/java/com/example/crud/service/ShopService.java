@@ -8,8 +8,10 @@ import com.example.crud.enums.Category;
 import com.example.crud.exception.CrudException;
 import com.example.crud.repository.RedisRepository;
 import com.example.crud.repository.ShopJpaRepository;
+import jakarta.persistence.PersistenceException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +23,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.example.crud.exception.ErrorCode.DELETE_FAILED;
 import static com.example.crud.exception.ErrorCode.VALUE_NOT_FOUND;
 
 @Service
@@ -51,7 +54,14 @@ public class ShopService {
     public void deleteShop(Integer id) {
         Shop shop = shopJpaRepository.findById(id)
                 .orElseThrow(() -> {throw new CrudException(VALUE_NOT_FOUND, "Shop not found");});
-        shopJpaRepository.delete(shop);
+        try {
+            shopJpaRepository.delete(shop);
+        } catch (DataIntegrityViolationException e) {
+            throw new CrudException(DELETE_FAILED, "Cannot delete shop: It has related data in menu table.");
+        } catch (PersistenceException e) {
+            throw new CrudException(DELETE_FAILED, "Database integrity constraint violation.");
+        }
+
     }
 
     public boolean isShopListRedis() {
@@ -62,7 +72,7 @@ public class ShopService {
 
     public void populateRedisFromDatabase() {
         List<Shop> shops = shopJpaRepository.findAll();
-
+        System.out.println("에러확인"+shops);
         // Shop 데이터를 Redis에 저장
         for (Shop shop : shops) {
             redisRepository.hashPutAll("shop:" + shop.getId(), Map.of(

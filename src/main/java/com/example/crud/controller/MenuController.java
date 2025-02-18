@@ -25,15 +25,15 @@ public class MenuController {
     @PostMapping("/menus")
     public ApiResponse<?> register(@RequestBody @Valid MenuRequest menuRequest) {
         MenuRegisterParam param = menuRequest.toParam();
+        System.out.println(param);
         menuService.registerMenu(param);
         return ApiResponse.of("SUCCESS");
     }
     @GetMapping("/menus")
-    public Page<Menu> search(@ModelAttribute MenuSearchRequest menuSearchRequest, @RequestParam(defaultValue = "0") int page,
+    public ApiResponse<?>  search(@ModelAttribute MenuSearchRequest menuSearchRequest, @RequestParam(defaultValue = "0") int page,
                              @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<Menu> result = menuService.search(menuSearchRequest.getName(),menuSearchRequest.getPrice(),menuSearchRequest.getDescription(),pageable);
-        return result;
+        return ApiResponse.of(menuService.search(menuSearchRequest.getName(),menuSearchRequest.getPrice(),menuSearchRequest.getDescription(),pageable));
     }
     @DeleteMapping("/menus/{id}")
     public ApiResponse<?> delete(@PathVariable Long id) {

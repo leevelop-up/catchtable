@@ -24,6 +24,7 @@ public class MenuService {
     private final ShopJpaRepository shopRepository;
 
     public ApiResponse<?> registerMenu(MenuRegisterParam param) {
+        System.out.println(param.getShopId());
         shopRepository.findById(param.getShopId())
                 .orElseThrow(() -> new CrudException(VALUE_NOT_FOUND, "Shop not found"));
         Menu menu = param.toDomain();
