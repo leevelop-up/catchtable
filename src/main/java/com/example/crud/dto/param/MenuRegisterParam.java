@@ -2,14 +2,13 @@ package com.example.crud.dto.param;
 
 import com.example.crud.domain.Menu;
 import com.example.crud.domain.Shop;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.Builder;
-import lombok.Getter;
+
+import lombok.*;
 
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class MenuRegisterParam {
 
@@ -28,7 +27,7 @@ public class MenuRegisterParam {
     }
     public String toString() {
         return "Member{" +
-                ", shop_id='" + shopId + '\'' +
+                ", shopid='" + shopId + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", description=" + description;

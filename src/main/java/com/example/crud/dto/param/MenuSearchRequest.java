@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Getter
 public class MenuSearchRequest {
 
-    @NotBlank
+
     private String name;
-    @NotNull
+
     private long price;
-    @NotBlank
+
     private String description;
 
 }

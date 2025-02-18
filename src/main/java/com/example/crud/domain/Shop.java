@@ -22,6 +22,8 @@ public class Shop extends BaseTimeEntity{
 
     private String name;
     private Float rating;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
     private Category category;
     private String city;
     private String district;
