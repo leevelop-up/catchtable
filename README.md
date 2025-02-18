@@ -6,7 +6,7 @@ MySQL을 데이터베이스로 활용하며, Redis를 사용하여 데이터 조
 👉 [CatchTable API 명세서](https://branched-provelone-770.notion.site/catch-table-api-47fa060a7e5d4219ac28ef0c0b10ef0b?pvs=74)
 
 ## 🛠 기술 스택  
-- **Language**: Java 17  
+- **Language**: Java 22  
 - **Framework**: Spring Boot  
 - **DB**: MySQL  
 - **Cache**: Redis  
