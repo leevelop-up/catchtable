@@ -33,7 +33,9 @@ public class MenuController {
     public ApiResponse<?>  search(@ModelAttribute MenuSearchRequest menuSearchRequest, @RequestParam(defaultValue = "0") int page,
                              @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return ApiResponse.of(menuService.search(menuSearchRequest.getName(),menuSearchRequest.getPrice(),menuSearchRequest.getDescription(),pageable));
+        Page<MenuSearchRequest> result = menuService.search(menuSearchRequest.getShopId(), menuSearchRequest.getName(),menuSearchRequest.getPrice(),menuSearchRequest.getDescription(),pageable); // ✅ DTO 변환 적용된 메서드 호출
+
+        return ApiResponse.of(result);
     }
     @DeleteMapping("/menus/{id}")
     public ApiResponse<?> delete(@PathVariable Long id) {
