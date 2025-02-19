@@ -27,9 +27,9 @@ public class Menu extends BaseTimeEntity{
     private String description;
 
     public String toString() {
-        return "Member{" +
+        return "Menu{" +
                 "id=" + id +
-                ", shop_id='" + shop + '\'' +
+                ", shop_id='" + shop.getId() + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", description=" + description;

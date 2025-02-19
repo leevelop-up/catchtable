@@ -19,11 +19,14 @@ public class MenuCustomRepositoryImpl implements MenuCustomRepository {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Page<Menu> search(String name, long price, String description, Pageable pageable) {
+    public Page<Menu> search(Integer shopId, String name, long price, String description, Pageable pageable) {
         QMenu menu = QMenu.menu;
 
         // ✅ BooleanBuilder를 사용하여 동적 조건 생성
         BooleanBuilder builder = new BooleanBuilder();
+        if (shopId != null) {
+            builder.and(menu.shop.id.eq(shopId));
+        }
         if (name != null && !name.isEmpty()) {
             builder.and(menu.name.containsIgnoreCase(name));
         }
