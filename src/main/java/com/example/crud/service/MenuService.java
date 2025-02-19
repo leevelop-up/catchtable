@@ -3,6 +3,7 @@ package com.example.crud.service;
 import com.example.crud.domain.Menu;
 import com.example.crud.domain.Shop;
 import com.example.crud.dto.param.MenuRegisterParam;
+import com.example.crud.dto.param.MenuSearchRequest;
 import com.example.crud.dto.param.MenuUpdateParam;
 import com.example.crud.dto.response.ApiResponse;
 import com.example.crud.exception.CrudException;
@@ -45,8 +46,8 @@ public class MenuService {
         return ApiResponse.of("SUCCESS");
     }
 
-    public Page<Menu> search(String name, long price, String description, Pageable pageable) {
-        Page<Menu> result = menuRepository.search(name, price, description, pageable);
-        return result;
+    public Page<MenuSearchRequest> search(Integer shopId, String name, long price, String description, Pageable pageable) {
+        Page<Menu> result = menuRepository.search(shopId, name, price, description, pageable);
+        return result.map(MenuSearchRequest::from);
     }
 }

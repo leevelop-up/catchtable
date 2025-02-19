@@ -1,7 +1,6 @@
 package com.example.crud.repository;
 
 import com.example.crud.domain.Shop;
-import com.example.crud.dto.param.ShopSearchParam;
 import com.example.crud.enums.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

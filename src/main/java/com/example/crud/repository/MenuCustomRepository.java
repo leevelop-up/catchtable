@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MenuCustomRepository {
 
-    Page<Menu> search(String name, long price, String description, Pageable pageable);
+    Page<Menu> search(Integer shopId, String name, long price, String description, Pageable pageable);
 }
