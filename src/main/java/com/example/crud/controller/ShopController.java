@@ -1,8 +1,8 @@
 package com.example.crud.controller;
 
-import com.example.crud.dto.param.ShopRegisterParam;
-import com.example.crud.dto.param.ShopSearchParam;
-import com.example.crud.dto.param.ShopUpdateParam;
+import com.example.crud.dto.shop.ShopRegisterParam;
+import com.example.crud.dto.shop.ShopSearchParam;
+import com.example.crud.dto.shop.ShopUpdateParam;
 import com.example.crud.dto.response.ApiResponse;
 import com.example.crud.dto.shop.ShopRegisterRequest;
 import com.example.crud.dto.shop.ShopUpdateRequest;

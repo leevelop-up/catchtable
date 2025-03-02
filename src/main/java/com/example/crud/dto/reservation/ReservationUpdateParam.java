@@ -1,4 +1,4 @@
-package com.example.crud.dto.param;
+package com.example.crud.dto.reservation;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

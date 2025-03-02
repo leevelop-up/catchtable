@@ -1,11 +1,10 @@
 package com.example.crud.controller;
 
-import com.example.crud.domain.Menu;
 import com.example.crud.dto.menu.MenuRequest;
 import com.example.crud.dto.menu.MenuUpdateRequest;
-import com.example.crud.dto.param.MenuRegisterParam;
-import com.example.crud.dto.param.MenuSearchRequest;
-import com.example.crud.dto.param.MenuUpdateParam;
+import com.example.crud.dto.menu.MenuRegisterParam;
+import com.example.crud.dto.menu.MenuSearchRequest;
+import com.example.crud.dto.menu.MenuUpdateParam;
 
 import com.example.crud.dto.response.ApiResponse;
 import com.example.crud.service.MenuService;

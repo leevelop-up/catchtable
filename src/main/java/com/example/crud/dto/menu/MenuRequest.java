@@ -1,10 +1,5 @@
 package com.example.crud.dto.menu;
 
-import com.example.crud.domain.Shop;
-import com.example.crud.dto.param.MenuRegisterParam;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

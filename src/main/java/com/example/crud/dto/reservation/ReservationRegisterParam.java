@@ -1,4 +1,4 @@
-package com.example.crud.dto.param;
+package com.example.crud.dto.reservation;
 
 import com.example.crud.domain.Reservation;
 import com.example.crud.domain.Shop;

@@ -1,7 +1,5 @@
 package com.example.crud.dto.member;
 
-import com.example.crud.dto.param.MemberJoinParam;
-import com.example.crud.dto.param.MemberUpdateParam;
 import com.example.crud.enums.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

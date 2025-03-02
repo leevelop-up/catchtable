@@ -1,7 +1,6 @@
 package com.example.crud.domain;
 
-import com.example.crud.dto.param.MenuRegisterParam;
-import com.example.crud.dto.param.MenuUpdateParam;
+import com.example.crud.dto.menu.MenuUpdateParam;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;

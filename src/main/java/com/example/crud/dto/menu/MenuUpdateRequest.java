@@ -1,7 +1,5 @@
 package com.example.crud.dto.menu;
 
-import com.example.crud.dto.param.MenuRegisterParam;
-import com.example.crud.dto.param.MenuUpdateParam;
 import lombok.Getter;
 import lombok.Setter;
 
