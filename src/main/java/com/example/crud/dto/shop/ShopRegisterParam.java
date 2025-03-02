@@ -1,4 +1,4 @@
-package com.example.crud.dto.param;
+package com.example.crud.dto.shop;
 
 import com.example.crud.domain.Shop;
 import com.example.crud.enums.Category;
@@ -13,12 +13,13 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ShopUpdateParam {
+public class ShopRegisterParam {
+
     @NotBlank
     private String name;
     @NotNull
     private Float rating;
-    @NotBlank
+    @NotNull
     private Category category;
     @NotBlank
     private String city;
@@ -42,5 +43,15 @@ public class ShopUpdateParam {
                 .openTime(openTime)
                 .closeTime(closeTime)
                 .build();
+    }
+    public String toString() {
+        return "Shop{" +
+                ", name='" + name + '\'' +
+                ", rating='" + rating + '\'' +
+                ", category='" + category + '\'' +
+                ", city=" + city +
+                ", district='" + district + '\'' +
+                ", capacity='" + capacity + '\'' +
+                '}';
     }
 }

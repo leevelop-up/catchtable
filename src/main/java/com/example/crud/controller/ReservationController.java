@@ -1,8 +1,8 @@
 package com.example.crud.controller;
 
-import com.example.crud.dto.param.ReservationRegisterParam;
+import com.example.crud.dto.reservation.ReservationRegisterParam;
 import com.example.crud.dto.reservation.ReservationSearchRequest;
-import com.example.crud.dto.param.ReservationUpdateParam;
+import com.example.crud.dto.reservation.ReservationUpdateParam;
 import com.example.crud.dto.reservation.ReservationUpdateRequest;
 import com.example.crud.dto.reservation.ReservationRequest;
 import com.example.crud.dto.response.ApiResponse;
@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.*;
 public class ReservationController {
     private final ReservationService reservationService;
 
-    /**
-     * 예약 등록
-     */
     @PostMapping("/reservations")
     public ApiResponse<?> register(@RequestBody @Valid ReservationRequest reservationRequest) {
         ReservationRegisterParam param = reservationRequest.toParam();
@@ -31,18 +28,12 @@ public class ReservationController {
         return ApiResponse.of(ReturnCode.SUCCESS);
     }
 
-    /**
-     * 예약 삭제
-     */
     @DeleteMapping("/reservations/{id}")
     public ApiResponse<?> delete(@PathVariable Integer id) {
         reservationService.deleteReservation(id);
         return ApiResponse.of(ReturnCode.SUCCESS);
     }
 
-    /**
-     * 예약 조회 (DTO 변환 적용)
-     */
     @GetMapping("/reservations")
     public ApiResponse<?> search(@ModelAttribute ReservationSearchRequest reservationSearchRequest,
                                  @RequestParam(defaultValue = "0") int page,
@@ -56,9 +47,6 @@ public class ReservationController {
         return ApiResponse.of(result);
     }
 
-    /**
-     * 예약 수정
-     */
     @PatchMapping("/reservations/{id}")
     public ApiResponse<?> update(@PathVariable Integer id, @RequestBody ReservationUpdateRequest reservationUpdateRequest) {
         ReservationUpdateParam param = reservationUpdateRequest.toParam();

@@ -1,7 +1,6 @@
 package com.example.crud.domain;
 
-import com.example.crud.dto.param.ReservationUpdateParam;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.crud.dto.reservation.ReservationUpdateParam;
 import jakarta.persistence.*;
 import lombok.*;
 

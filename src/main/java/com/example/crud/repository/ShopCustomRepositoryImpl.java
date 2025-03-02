@@ -3,7 +3,6 @@ package com.example.crud.repository;
 
 import com.example.crud.domain.QShop;
 import com.example.crud.domain.Shop;
-import com.example.crud.dto.param.ShopSearchParam;
 import com.example.crud.enums.Category;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.JPQLQueryFactory;

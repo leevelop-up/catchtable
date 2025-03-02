@@ -1,4 +1,4 @@
-package com.example.crud.dto.param;
+package com.example.crud.dto.shop;
 
 import com.example.crud.enums.Category;
 import lombok.Data;

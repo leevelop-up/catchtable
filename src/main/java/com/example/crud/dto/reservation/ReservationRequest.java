@@ -1,6 +1,5 @@
 package com.example.crud.dto.reservation;
 
-import com.example.crud.dto.param.ReservationRegisterParam;
 import lombok.Data;
 
 import java.time.LocalDate;

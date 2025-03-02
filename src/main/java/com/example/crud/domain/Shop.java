@@ -1,7 +1,6 @@
 package com.example.crud.domain;
 
-import com.example.crud.dto.param.ShopRegisterParam;
-import com.example.crud.dto.param.ShopUpdateParam;
+import com.example.crud.dto.shop.ShopUpdateParam;
 import com.example.crud.enums.Category;
 import jakarta.persistence.*;
 import lombok.*;

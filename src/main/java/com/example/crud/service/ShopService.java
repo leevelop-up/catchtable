@@ -1,9 +1,8 @@
 package com.example.crud.service;
 
 import com.example.crud.domain.Shop;
-import com.example.crud.dto.param.ShopRegisterParam;
-import com.example.crud.dto.param.ShopSearchParam;
-import com.example.crud.dto.param.ShopUpdateParam;
+import com.example.crud.dto.shop.ShopRegisterParam;
+import com.example.crud.dto.shop.ShopUpdateParam;
 import com.example.crud.enums.Category;
 import com.example.crud.exception.CrudException;
 import com.example.crud.repository.RedisRepository;

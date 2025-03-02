@@ -1,8 +1,8 @@
 package com.example.crud.service;
 
 import com.example.crud.domain.Member;
-import com.example.crud.dto.param.MemberJoinParam;
-import com.example.crud.dto.param.MemberUpdateParam;
+import com.example.crud.dto.member.MemberJoinParam;
+import com.example.crud.dto.member.MemberUpdateParam;
 import com.example.crud.exception.CrudException;
 import com.example.crud.repository.MemberJpaRepository;
 import com.example.crud.repository.MemberRepository;

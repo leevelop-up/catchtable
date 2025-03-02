@@ -1,6 +1,6 @@
 package com.example.crud.domain;
 
-import com.example.crud.dto.param.MemberUpdateParam;
+import com.example.crud.dto.member.MemberUpdateParam;
 import com.example.crud.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
