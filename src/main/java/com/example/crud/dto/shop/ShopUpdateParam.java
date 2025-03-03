@@ -26,6 +26,7 @@ public class ShopUpdateParam {
     private String district;
     @NotNull
     private Integer capacity;
+    private Integer seat;
     @NotNull
     private LocalTime openTime;
     @NotNull
@@ -37,6 +38,7 @@ public class ShopUpdateParam {
                 .rating(rating)
                 .category(category)
                 .city(city)
+                .seat(seat)
                 .district(district)
                 .capacity(capacity)
                 .openTime(openTime)

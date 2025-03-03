@@ -26,6 +26,7 @@ public class ShopRegisterRequest {
     private String city;
     @NotBlank
     private String district;
+    private Integer seat;
     @NotNull
     private Integer capacity;
     @JsonFormat(pattern = "HH:mm:ss")
@@ -43,6 +44,7 @@ public class ShopRegisterRequest {
                 .city(city)
                 .district(district)
                 .capacity(capacity)
+                .seat(seat)
                 .openTime(openTime)
                 .closeTime(closeTime)
                 .build();

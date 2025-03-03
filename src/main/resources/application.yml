@@ -29,7 +29,7 @@ spring:
   data:
     redis:
       host: localhost
-      port: 6380
+      port: 6379
   logging:
     level:
       org.springframework.batch: DEBUG # 배치 디버그 로그 활성화
@@ -64,7 +64,7 @@ spring:
   data:
     redis:
       host: localhost
-      port: 6380
+      port: 6379
   logging:
     level:
       org.springframework.batch: DEBUG # 디버그 활성화

@@ -27,6 +27,7 @@ public class ShopRegisterParam {
     private String district;
     @NotNull
     private Integer capacity;
+    private Integer seat;
     @NotNull
     private LocalTime openTime;
     @NotNull
@@ -38,6 +39,7 @@ public class ShopRegisterParam {
                 .rating(rating)
                 .category(category)
                 .city(city)
+                .seat(seat)
                 .district(district)
                 .capacity(capacity)
                 .openTime(openTime)
