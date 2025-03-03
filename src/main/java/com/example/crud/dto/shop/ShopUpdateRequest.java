@@ -24,6 +24,7 @@ public class ShopUpdateRequest {
     private Category category;
     @NotBlank
     private String city;
+    private Integer seat;
     @NotBlank
     private String district;
     @NotNull
@@ -44,6 +45,7 @@ public class ShopUpdateRequest {
                 .city(city)
                 .district(district)
                 .capacity(capacity)
+                .seat(seat)
                 .openTime(openTime)
                 .closeTime(closeTime)
                 .build();

@@ -22,6 +22,7 @@ CREATE TABLE shop (
                       city VARCHAR(50) NOT NULL COMMENT '도시',
                       district VARCHAR(50) NOT NULL COMMENT '군/구',
                       capacity INT NOT NULL COMMENT '수용 가능 인원',
+                      seat INT(10) NOT NULL default 0,
                       opening_time TIME NOT NULL COMMENT '영업 시작 시간',
                       closing_time TIME NOT NULL COMMENT '영업 종료 시간',
                       create_date_time DATETIME NOT NULL COMMENT '생성 날짜',
