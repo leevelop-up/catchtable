@@ -19,6 +19,17 @@ public class RedisRepository {
         return redisTemplate.opsForSet().add(key, value);
     }
 
+    public Long sCard(String key) {
+        return redisTemplate.opsForSet().size(key);
+    }
+
+    public Boolean sIsMember(String key, String value) {
+        return redisTemplate.opsForSet().isMember(key, value);
+    }
+    public Long rPush(String key, String value) {
+        return redisTemplate.opsForList().rightPush(key, value);
+    }
+
 
     public Set<String> hashSize(String key) {
         String keyPattern = key + ":*"; // 키 패턴 동적 생성

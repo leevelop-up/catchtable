@@ -28,6 +28,8 @@ public class Shop extends BaseTimeEntity{
     private String district;
     private Integer capacity;
 
+    private Integer seat;
+
     @Column(name = "opening_time")
     private LocalTime openTime;
     @Column(name = "closing_time")
