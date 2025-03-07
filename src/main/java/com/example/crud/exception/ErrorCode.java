@@ -6,6 +6,7 @@ public enum ErrorCode {
     METHOD_NOT_ALLOWED(405, "C003", "Invalid Input Value"),
     VALUE_NOT_FOUND(404, "C005", "Value Not Found"),
     DELETE_FAILED(406, "C005", "DELETE_FAILED"),
+    SEAT_IS_FULL(401, "C004", "Seat is full"),
     INTERNAL_SERVER_ERROR(500, "C004", "Server Error");
 
     public final String code;

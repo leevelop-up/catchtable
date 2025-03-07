@@ -25,6 +25,7 @@ public class Shop extends BaseTimeEntity{
     @Column(nullable = true)
     private Category category;
     private String city;
+    private Integer seat;
     private String district;
     private Integer capacity;
 
@@ -52,6 +53,7 @@ public class Shop extends BaseTimeEntity{
         this.rating = param.getRating();
         this.category = param.getCategory();
         this.city = param.getCity();
+        this.seat = param.getSeat();
         this.district = param.getDistrict();
         this.capacity = param.getCapacity();
         this.openTime = param.getOpenTime();
