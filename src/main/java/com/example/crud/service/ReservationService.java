@@ -50,7 +50,7 @@ public class ReservationService {
         return ApiResponse.of("SUCCESS");
     }
     public void syncReservationFromRedis(Integer shopId, String date, String time) {
-    //redis에 값이 있는지 확인 후 해당 값을 db에 저장
+        //redis에 값이 있는지 확인 후 해당 값을 db에 저장
 
     }
     public void shopCheck(Integer shopId) {

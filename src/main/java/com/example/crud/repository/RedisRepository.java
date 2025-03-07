@@ -27,6 +27,17 @@ public class RedisRepository {
         return redisTemplate.opsForSet().add(key, value);
     }
 
+    public Long sCard(String key) {
+        return redisTemplate.opsForSet().size(key);
+    }
+
+    public Boolean sIsMember(String key, String value) {
+        return redisTemplate.opsForSet().isMember(key, value);
+    }
+    public Long rPush(String key, String value) {
+        return redisTemplate.opsForList().rightPush(key, value);
+    }
+
 
     public int getReservationCount(Integer shopId, String date, String time) {
         String reservationKey = RedisKeyUtil.getReservationKey(shopId, date, time);
